@@ -1,527 +1,413 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Игорь & Виктория</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Игорь & Виктория — Свадебное приглашение</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root{
+      --burgundy:#7a0f1d;
+      --burgundy-dark:#640b16;
+      --burgundy-soft:#9a2c39;
+      --cream:#f6eee6;
+      --cream-2:#f1e5d9;
+      --text:#3d2c27;
+      --muted:#6f5d57;
+      --line:rgba(122,15,29,.18);
+      --line-strong:rgba(122,15,29,.32);
+      --shadow:0 18px 60px rgba(0,0,0,.16);
+    }
 
-:root{
-  --bg:#fff7f4;
-  --red:#b33c4c;
-  --red-soft:#cf6b78;
-  --champagne:#dcc1a4;
-  --text:#4a3535;
-  --muted:#826666;
-  --line:rgba(179,60,76,.16);
-}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%}
+    body{
+      background:var(--cream);
+      overflow-x:hidden;
+      color:var(--text);
+      font-family:"Inter",sans-serif;
+    }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    .page{width:100%;min-height:100vh}
 
-html{
-  scroll-behavior:smooth;
-}
+    .screen{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 18px;
+    }
 
-body{
-  background:
-    radial-gradient(circle at top right, rgba(207,107,120,.12), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(220,193,164,.16), transparent 35%),
-    var(--bg);
+    .cover{
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255,220,190,.06), transparent 18%),
+        radial-gradient(circle at 15% 20%, rgba(255,220,190,.04), transparent 20%),
+        linear-gradient(180deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
+      color:#fff8f2;
+    }
 
-  overflow-x:hidden;
-  color:var(--text);
-  font-family:'Cormorant Garamond', serif;
-}
+    .cream{
+      background:
+        radial-gradient(circle at 50% 0%, rgba(122,15,29,.05), transparent 18%),
+        linear-gradient(180deg, #fbf4ed 0%, var(--cream) 100%);
+      color:var(--text);
+      border-top:1px solid rgba(122,15,29,.08);
+    }
 
-/* SOFT GRAIN */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  opacity:.03;
-  pointer-events:none;
-  background-image:
-  radial-gradient(#000 0.5px, transparent 0.5px);
-  background-size:9px 9px;
-}
+    .card{
+      width:min(760px, 100%);
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
 
-/* SECTIONS */
-.section{
-  min-height:100vh;
-  padding:120px 8vw;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
+    .eyebrow{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.42em;
+      color:rgba(246,238,230,.84);
+      margin-bottom:42px;
+      padding-left:.42em;
+    }
 
-.content{
-  max-width:850px;
-  width:100%;
-  position:relative;
-  z-index:2;
-  text-align:center;
-  animation:fadeUp 1.3s ease;
-}
+    .names{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(56px, 9vw, 104px);
+      line-height:.92;
+      margin:0;
+      font-weight:600;
+      color:#fff8f2;
+      text-shadow:0 1px 0 rgba(255,255,255,.04);
+    }
 
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    .amp{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(46px, 8vw, 84px);
+      line-height:1;
+      margin:4px 0;
+      color:#fff8f2;
+    }
 
-/* WATERCOLOR PEONIES */
-.peony{
-  position:absolute;
-  opacity:.15;
-  z-index:0;
-  pointer-events:none;
-  filter:blur(.2px);
-}
+    .month{
+      margin-top:22px;
+      font-size:12px;
+      letter-spacing:.38em;
+      text-transform:uppercase;
+      color:rgba(246,238,230,.84);
+    }
 
-.peony.top{
-  width:430px;
-  top:-30px;
-  right:-120px;
-}
+    .day{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(78px, 16vw, 140px);
+      line-height:.9;
+      margin:10px 0 0;
+      font-weight:600;
+      color:#fff8f2;
+    }
 
-.peony.bottom{
-  width:370px;
-  bottom:-20px;
-  left:-90px;
-  transform:rotate(12deg);
-}
+    .footer-date{
+      margin-top:12px;
+      font-size:12px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:rgba(246,238,230,.84);
+    }
 
-/* TYPOGRAPHY */
-.label{
-  font-family:'Inter', sans-serif;
-  letter-spacing:.35em;
-  text-transform:uppercase;
-  font-size:12px;
-  color:var(--champagne);
-  margin-bottom:26px;
-}
+    .flower{
+      position:absolute;
+      width:420px;
+      height:420px;
+      opacity:.15;
+      pointer-events:none;
+      z-index:1;
+      filter:saturate(.96);
+    }
 
-.hero{
-  font-size:110px;
-  line-height:.9;
-  color:var(--red);
-  font-weight:400;
-}
+    .flower.one{right:-120px;top:48px;transform:rotate(12deg)}
+    .flower.two{left:-140px;bottom:0;transform:rotate(-14deg);opacity:.10}
 
-.names{
-  font-family:'Great Vibes', cursive;
-  font-size:78px;
-  color:var(--red-soft);
-  margin-top:38px;
-}
+    .cream .flower.one{right:-92px;top:108px;opacity:.14}
+    .cream .flower.two{left:-112px;bottom:28px;opacity:.08}
 
-.date{
-  margin-top:30px;
-  font-size:24px;
-  line-height:1.8;
-  color:var(--muted);
-  font-family:'Inter', sans-serif;
-}
+    .body-inner{
+      width:min(760px, 100%);
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:40px 10px 22px;
+    }
 
-.text{
-  font-size:40px;
-  line-height:1.45;
-}
+    .greeting{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(42px, 7.2vw, 68px);
+      line-height:1;
+      margin:0 0 20px;
+      color:var(--burgundy-soft);
+      font-style:italic;
+      font-weight:500;
+    }
 
-.small{
-  margin-top:30px;
-  font-size:19px;
-  line-height:1.9;
-  color:var(--muted);
-  font-family:'Inter', sans-serif;
-}
+    .lead{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(26px, 4.5vw, 48px);
+      line-height:1.34;
+      margin:0 auto;
+      max-width:680px;
+      color:var(--text);
+      font-weight:500;
+      text-wrap:balance;
+    }
 
-.line{
-  width:1px;
-  height:90px;
-  background:var(--line);
-  margin:52px auto;
-}
+    .lead2{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(26px, 4.5vw, 46px);
+      line-height:1.34;
+      margin:32px auto 0;
+      max-width:680px;
+      color:var(--text);
+      font-weight:500;
+      text-wrap:balance;
+    }
 
-/* TIMELINE */
-.timeline{
-  margin-top:90px;
-  display:flex;
-  flex-direction:column;
-  gap:64px;
-}
+    .section-title{
+      margin:48px 0 16px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(54px, 8.8vw, 86px);
+      color:var(--burgundy-soft);
+      line-height:1;
+      font-weight:600;
+    }
 
-.event{
-  text-align:left;
-  padding-left:38px;
-  border-left:1px solid var(--line);
-  position:relative;
-}
+    .rule{
+      width:128px;
+      height:1px;
+      margin:18px auto 0;
+      background:linear-gradient(90deg, transparent, rgba(122,15,29,.64), transparent);
+    }
 
-.event::before{
-  content:"";
-  position:absolute;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:var(--red);
-  left:-6px;
-  top:15px;
-}
+    .info-wrap{
+      margin-top:34px;
+      display:grid;
+      gap:18px;
+    }
 
-.time{
-  font-size:38px;
-  color:var(--red);
-  margin-bottom:10px;
-}
+    .info-box{
+      background:rgba(122,15,29,.04);
+      border:1px solid rgba(122,15,29,.10);
+      border-radius:24px;
+      padding:22px 18px;
+      box-shadow:0 8px 30px rgba(0,0,0,.03);
+    }
 
-.event-title{
-  font-size:34px;
-  margin-bottom:12px;
-}
+    .info-head{
+      font-family:"Cormorant Garamond",serif;
+      font-size:32px;
+      font-weight:600;
+      color:var(--burgundy-soft);
+      margin:0 0 12px;
+    }
 
-.event-text{
-  font-size:18px;
-  line-height:1.9;
-  color:var(--muted);
-  font-family:'Inter', sans-serif;
-}
+    .info-box p{
+      margin:0;
+      font-size:15px;
+      line-height:1.8;
+      color:#4b3a35;
+    }
 
-/* FORM */
-.form{
-  margin-top:70px;
-  text-align:left;
-}
+    .thin{
+      width:112px;
+      height:1px;
+      margin:16px auto;
+      background:linear-gradient(90deg, transparent, rgba(122,15,29,.42), transparent);
+    }
 
-.question{
-  margin-bottom:45px;
-}
+    .schedule{
+      display:grid;
+      gap:10px;
+      margin-top:6px;
+      text-align:left;
+    }
 
-.question-title{
-  font-size:30px;
-  color:var(--red);
-  margin-bottom:16px;
-}
+    .item{
+      display:grid;
+      grid-template-columns:88px 1fr;
+      gap:16px;
+      align-items:start;
+      padding:14px 0;
+      border-bottom:1px solid rgba(122,15,29,.10);
+    }
 
-.option{
-  font-family:'Inter', sans-serif;
-  font-size:17px;
-  line-height:2;
-  color:var(--muted);
-}
+    .item:last-child{border-bottom:none}
 
-.footer{
-  padding-bottom:180px;
-}
+    .time{
+      font-family:"Cormorant Garamond",serif;
+      font-size:27px;
+      line-height:1;
+      font-weight:600;
+      color:var(--burgundy-soft);
+      text-align:right;
+      padding-top:1px;
+    }
 
-/* MOBILE */
-@media(max-width:768px){
+    .event{
+      font-size:16px;
+      font-weight:600;
+      color:#3f2f2b;
+      margin-bottom:4px;
+    }
 
-  .hero{
-    font-size:62px;
-  }
+    .place,.desc{
+      font-size:14px;
+      line-height:1.58;
+      color:var(--muted);
+    }
 
-  .names{
-    font-size:52px;
-  }
+    .botanical{
+      position:absolute;
+      width:440px;
+      height:440px;
+      opacity:.16;
+      pointer-events:none;
+      z-index:1;
+      filter:saturate(.95);
+    }
 
-  .text{
-    font-size:28px;
-  }
+    .botanical.right{right:-110px;top:58px;transform:rotate(10deg)}
+    .botanical.left{left:-125px;bottom:12px;transform:rotate(-15deg);opacity:.10}
 
-  .event-title{
-    font-size:27px;
-  }
+    .cover .botanical.right{right:-120px;top:38px}
+    .cream .botanical.right{right:-88px;top:120px}
+    .cream .botanical.left{left:-105px;bottom:34px}
 
-  .event-text{
-    font-size:16px;
-  }
-
-  .section{
-    padding:100px 8vw;
-  }
-
-  .peony.top{
-    width:240px;
-    right:-60px;
-  }
-
-  .peony.bottom{
-    width:220px;
-  }
-
-}
-
-</style>
+    @media (max-width:720px){
+      .screen{padding:24px 14px}
+      .eyebrow,.month,.footer-date{font-size:10px;letter-spacing:.30em}
+      .names{font-size:clamp(54px, 15vw, 72px)}
+      .day{font-size:clamp(76px, 20vw, 118px)}
+      .lead,.lead2{font-size:clamp(24px, 6vw, 34px)}
+      .greeting{font-size:clamp(38px, 10vw, 52px)}
+      .section-title{font-size:clamp(44px, 11vw, 64px)}
+      .info-head{font-size:28px}
+      .item{grid-template-columns:1fr;gap:6px}
+      .time{text-align:left}
+      .flower,.botanical{width:250px;height:250px}
+      .cover .botanical.right,.cream .botanical.right{right:-92px;top:84px}
+      .cover .botanical.left,.cream .botanical.left{left:-90px;bottom:24px}
+      .item{text-align:left}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+
+    <section class="screen cover">
+      <img class="botanical right" src="https://pngimg.com/uploads/poppy/poppy_PNG56.png" alt="" aria-hidden="true">
+      <img class="botanical left" src="https://pngimg.com/uploads/poppy/poppy_PNG56.png" alt="" aria-hidden="true">
+
+      <div class="card">
+        <div class="eyebrow">Вместе и навсегда</div>
+        <h1 class="names">Игорь</h1>
+        <div class="amp">&amp;</div>
+        <h1 class="names">Виктория</h1>
+        <div class="month">Июнь</div>
+        <div class="day">12</div>
+        <div class="footer-date">Пятница • 2026</div>
+      </div>
+    </section>
+
+    <section class="screen cream">
+        <img class="botanical right" src="https://pngimg.com/uploads/poppy/poppy_PNG56.png" alt="" aria-hidden="true">
+      <img class="botanical left" src="https://pngimg.com/uploads/poppy/poppy_PNG56.png" alt="" aria-hidden="true">
+
+      <div class="body-inner">
+        <p class="greeting">Дорогой гость!</p>
+
+        <p class="lead">
+          Мы рады сообщить вам, что 12.06.2026 состоится самое важное и счастливое событие в нашей жизни — день нашей свадьбы.
+        </p>
+
+        <p class="lead2">
+          С огромной радостью приглашаем вас разделить с нами этот особенный день ✨
+        </p>
+
+        <div class="section-title">Пожелания</div>
+        <div class="rule"></div>
+
+        <div class="info-box">
+            <div class="info-head">Пожелания</div>
+            <p>Ваше присутствие — уже самый главный подарок для нас.</p>
+            <div class="thin"></div>
+            <p>Но если вы захотите порадовать нас дополнительно, мы будем благодарны вкладу в нашу будущую семью и совместные мечты.</p>
+            <div class="thin"></div>
+            <p>Мы очень любим цветы, но будем рады, если вместо большого букета вы выберете бутылочку вина для нашей семейной коллекции.</p>
+          </div>
+          
+
+          <div class="info-box">
+            <div class="info-head">Dress code</div>
+            <p>Будем благодарны, если в своих образах вы поддержите атмосферу нашего вечера.</p>
+            <div class="thin"></div>
+            <p><strong>Предпочтительные оттенки:</strong> тёмно-синий, графитовый, шоколадный, тёмно-зелёный, бежевый и светлые натуральные оттенки.</p>
+            <div class="thin"></div>
+            <p><strong>Просим избегать:</strong> ярких и неоновых цветов, а также полностью белых образов.</p>
+          </div>
+
+          <div class="info-box">
+            <div class="info-head">Свадебное расписание</div>
+            <div class="schedule">
+              <div class="item">
+                <div class="time">14:20</div>
+                <div>
+                  <div class="event">Торжественная регистрация брака</div>
+                  <div class="place">Усадьба Н. С. Третьякова (Библиотека Боголюбова)<br>Москва, Сущёвская улица, 14, 127030</div>
+                  <div class="desc">Будем счастливы разделить с вами этот важный момент.</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="time">15:00</div>
+                <div>
+                  <div class="event">Свадебная прогулка и фотосессия молодожёнов</div>
+                  <div class="place">После церемонии у гостей будет немного времени для отдыха и подготовки к праздничному вечеру.</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="time">16:00</div>
+                <div>
+                  <div class="event">Welcome &amp; фуршет</div>
+                  <div class="place">Особняк В. А. Лемана, банкетный зал «Муза»<br>Гороховский переулок, 19с4</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="time">17:00</div>
+                <div>
+                  <div class="event">Праздничный вечер</div>
+                  <div class="place">Банкетный зал «Муза»</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="time">23:00</div>
+                <div>
+                  <div class="event">Окончание свадебного дня</div>
+                  <div class="place">Даже самый прекрасный вечер когда-нибудь подходит к концу…</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- PEONIES -->
-<img class="peony top"
-src="https://pngimg.com/d/peony_PNG22.png">
-
-<img class="peony bottom"
-src="https://pngimg.com/d/peony_PNG20.png">
-
-<!-- HERO -->
-<section class="section">
-
-<div class="content">
-
-<div class="label">
-Wedding Invitation
-</div>
-
-<h1 class="hero">
-ВМЕСТЕ <br>
-И НАВСЕГДА
-</h1>
-
-<div class="names">
-Игорь & Виктория
-</div>
-
-<div class="line"></div>
-
-<p class="date">
-12 июня 2026 • пятница <br>
-Ждём вас 🤍
-</p>
-
-</div>
-</section>
-
-<!-- INVITATION -->
-<section class="section">
-
-<div class="content">
-
-<div class="label">
-Dear Guest
-</div>
-
-<p class="text">
-Мы рады сообщить вам, что 12.06.2026 состоится самое важное и счастливое событие в нашей жизни — день нашей свадьбы.
-</p>
-
-<div class="line"></div>
-
-<p class="small">
-С огромной радостью приглашаем вас разделить с нами этот особенный день и стать частью наших тёплых воспоминаний ✨
-</p>
-
-</div>
-</section>
-
-<!-- WISHES -->
-<section class="section">
-
-<div class="content">
-
-<div class="label">
-Wishes
-</div>
-
-<p class="text">
-Ваше присутствие — уже самый главный подарок для нас 🤍
-</p>
-
-<div class="line"></div>
-
-<p class="small">
-Но если вы захотите порадовать нас дополнительно, мы будем благодарны вкладу в нашу будущую семью и совместные мечты.
-<br><br>
-Мы очень любим цветы, но будем рады, если вместо большого букета вы выберете бутылочку вина для нашей семейной коллекции 🍷
-</p>
-
-</div>
-</section>
-
-<!-- DRESS CODE -->
-<section class="section">
-
-<div class="content">
-
-<div class="label">
-Dress Code
-</div>
-
-<p class="text">
-Будем благодарны, если в своих образах вы поддержите атмосферу нашего вечера
-</p>
-
-<div class="line"></div>
-
-<p class="small">
-тёмно-синий • тёмно-зелёный • графитовый • шоколадный • бежевый • светлые натуральные оттенки
-<br><br>
-Просим избегать ярких и неоновых цветов, а также полностью белых образов 🤍
-</p>
-
-</div>
-</section>
-
-<!-- TIMELINE -->
-<section class="section">
-
-<div class="content">
-
-<div class="label">
-Wedding Day
-</div>
-
-<h2 style="font-size:74px;color:#b33c4c;font-weight:400;">
-Свадебное расписание ✨
-</h2>
-
-<div class="timeline">
-
-<div class="event">
-<div class="time">14:20</div>
-<div class="event-title">
-Торжественная регистрация брака
-</div>
-
-<div class="event-text">
-Усадьба Н. С. Третьякова <br>
-(Библиотека Боголюбова) <br>
-ул. Сущёвская, 14
-<br><br>
-Будем счастливы разделить с вами этот важный момент 🤍
-</div>
-</div>
-
-<div class="event">
-<div class="time">15:00</div>
-
-<div class="event-title">
-Свадебная прогулка и фотосессия молодожёнов
-</div>
-
-<div class="event-text">
-После церемонии у гостей будет немного времени для отдыха и подготовки к праздничному вечеру ✨
-</div>
-</div>
-
-<div class="event">
-<div class="time">16:00</div>
-
-<div class="event-title">
-Welcome & фуршет
-</div>
-
-<div class="event-text">
-Особняк В. А. Лемана, банкетный зал «Муза»
-<br>
-Гороховский переулок, 19с4
-</div>
-</div>
-
-<div class="event">
-<div class="time">17:00</div>
-
-<div class="event-title">
-Праздничный вечер
-</div>
-
-<div class="event-text">
-Банкетный зал «Муза»
-<br><br>
-Здесь пройдёт наш свадебный вечер ✨
-</div>
-</div>
-
-<div class="event">
-<div class="time">23:00</div>
-
-<div class="event-title">
-Окончание свадебного дня
-</div>
-
-<div class="event-text">
-Даже самый прекрасный вечер когда-нибудь подходит к концу… 🤍
-</div>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- FORM -->
-<section class="section footer">
-
-<div class="content">
-
-<div class="label">
-Guest Form
-</div>
-
-<h2 style="font-size:72px;color:#b33c4c;font-weight:400;">
-Анкета гостя ✨
-</h2>
-
-<p class="small">
-Пожалуйста, ответьте на несколько вопросов, которые мы для вас подготовили 🤍
-</p>
-
-<div class="form">
-
-<div class="question">
-<div class="question-title">
-Ваше имя и фамилия
-</div>
-</div>
-
-<div class="question">
-<div class="question-title">
-🚕 Потребуется ли вам трансфер от ЗАГСа до банкетного зала?
-</div>
-
-<div class="option">• Да</div>
-<div class="option">• Нет, буду на личном транспорте</div>
-</div>
-
-<div class="question">
-<div class="question-title">
-🥂 Какой алкоголь вы предпочитаете?
-</div>
-
-<div class="option">• Красное вино</div>
-<div class="option">• Белое вино</div>
-<div class="option">• Шампанское</div>
-<div class="option">• Виски / коньяк</div>
-<div class="option">• Водка</div>
-<div class="option">• Не буду пить алкоголь</div>
-
-</div>
-
-</div>
-
-<div class="line"></div>
-
-<p class="text">
-С любовью <br>
-Игорь и Виктория 🤍
-</p>
-
-</div>
-</section>
-
+  </div>
 </body>
 </html>
