@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Игорь & Виктория</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#fff7f4;
+  --red:#b33c4c;
+  --red-soft:#cf6b78;
+  --champagne:#dcc1a4;
+  --text:#4a3535;
+  --muted:#826666;
+  --line:rgba(179,60,76,.16);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at top right, rgba(207,107,120,.12), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(220,193,164,.16), transparent 35%),
+    var(--bg);
+
+  overflow-x:hidden;
+  color:var(--text);
+  font-family:'Cormorant Garamond', serif;
+}
+
+/* SOFT GRAIN */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  opacity:.03;
+  pointer-events:none;
+  background-image:
+  radial-gradient(#000 0.5px, transparent 0.5px);
+  background-size:9px 9px;
+}
+
+/* SECTIONS */
+.section{
+  min-height:100vh;
+  padding:120px 8vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.content{
+  max-width:850px;
+  width:100%;
+  position:relative;
+  z-index:2;
+  text-align:center;
+  animation:fadeUp 1.3s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* WATERCOLOR PEONIES */
+.peony{
+  position:absolute;
+  opacity:.15;
+  z-index:0;
+  pointer-events:none;
+  filter:blur(.2px);
+}
+
+.peony.top{
+  width:430px;
+  top:-30px;
+  right:-120px;
+}
+
+.peony.bottom{
+  width:370px;
+  bottom:-20px;
+  left:-90px;
+  transform:rotate(12deg);
+}
+
+/* TYPOGRAPHY */
+.label{
+  font-family:'Inter', sans-serif;
+  letter-spacing:.35em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:var(--champagne);
+  margin-bottom:26px;
+}
+
+.hero{
+  font-size:110px;
+  line-height:.9;
+  color:var(--red);
+  font-weight:400;
+}
+
+.names{
+  font-family:'Great Vibes', cursive;
+  font-size:78px;
+  color:var(--red-soft);
+  margin-top:38px;
+}
+
+.date{
+  margin-top:30px;
+  font-size:24px;
+  line-height:1.8;
+  color:var(--muted);
+  font-family:'Inter', sans-serif;
+}
+
+.text{
+  font-size:40px;
+  line-height:1.45;
+}
+
+.small{
+  margin-top:30px;
+  font-size:19px;
+  line-height:1.9;
+  color:var(--muted);
+  font-family:'Inter', sans-serif;
+}
+
+.line{
+  width:1px;
+  height:90px;
+  background:var(--line);
+  margin:52px auto;
+}
+
+/* TIMELINE */
+.timeline{
+  margin-top:90px;
+  display:flex;
+  flex-direction:column;
+  gap:64px;
+}
+
+.event{
+  text-align:left;
+  padding-left:38px;
+  border-left:1px solid var(--line);
+  position:relative;
+}
+
+.event::before{
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--red);
+  left:-6px;
+  top:15px;
+}
+
+.time{
+  font-size:38px;
+  color:var(--red);
+  margin-bottom:10px;
+}
+
+.event-title{
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.event-text{
+  font-size:18px;
+  line-height:1.9;
+  color:var(--muted);
+  font-family:'Inter', sans-serif;
+}
+
+/* FORM */
+.form{
+  margin-top:70px;
+  text-align:left;
+}
+
+.question{
+  margin-bottom:45px;
+}
+
+.question-title{
+  font-size:30px;
+  color:var(--red);
+  margin-bottom:16px;
+}
+
+.option{
+  font-family:'Inter', sans-serif;
+  font-size:17px;
+  line-height:2;
+  color:var(--muted);
+}
+
+.footer{
+  padding-bottom:180px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .hero{
+    font-size:62px;
+  }
+
+  .names{
+    font-size:52px;
+  }
+
+  .text{
+    font-size:28px;
+  }
+
+  .event-title{
+    font-size:27px;
+  }
+
+  .event-text{
+    font-size:16px;
+  }
+
+  .section{
+    padding:100px 8vw;
+  }
+
+  .peony.top{
+    width:240px;
+    right:-60px;
+  }
+
+  .peony.bottom{
+    width:220px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PEONIES -->
+<img class="peony top"
+src="https://pngimg.com/d/peony_PNG22.png">
+
+<img class="peony bottom"
+src="https://pngimg.com/d/peony_PNG20.png">
+
+<!-- HERO -->
+<section class="section">
+
+<div class="content">
+
+<div class="label">
+Wedding Invitation
+</div>
+
+<h1 class="hero">
+ВМЕСТЕ <br>
+И НАВСЕГДА
+</h1>
+
+<div class="names">
+Игорь & Виктория
+</div>
+
+<div class="line"></div>
+
+<p class="date">
+12 июня 2026 • пятница <br>
+Ждём вас 🤍
+</p>
+
+</div>
+</section>
+
+<!-- INVITATION -->
+<section class="section">
+
+<div class="content">
+
+<div class="label">
+Dear Guest
+</div>
+
+<p class="text">
+Мы рады сообщить вам, что 12.06.2026 состоится самое важное и счастливое событие в нашей жизни — день нашей свадьбы.
+</p>
+
+<div class="line"></div>
+
+<p class="small">
+С огромной радостью приглашаем вас разделить с нами этот особенный день и стать частью наших тёплых воспоминаний ✨
+</p>
+
+</div>
+</section>
+
+<!-- WISHES -->
+<section class="section">
+
+<div class="content">
+
+<div class="label">
+Wishes
+</div>
+
+<p class="text">
+Ваше присутствие — уже самый главный подарок для нас 🤍
+</p>
+
+<div class="line"></div>
+
+<p class="small">
+Но если вы захотите порадовать нас дополнительно, мы будем благодарны вкладу в нашу будущую семью и совместные мечты.
+<br><br>
+Мы очень любим цветы, но будем рады, если вместо большого букета вы выберете бутылочку вина для нашей семейной коллекции 🍷
+</p>
+
+</div>
+</section>
+
+<!-- DRESS CODE -->
+<section class="section">
+
+<div class="content">
+
+<div class="label">
+Dress Code
+</div>
+
+<p class="text">
+Будем благодарны, если в своих образах вы поддержите атмосферу нашего вечера
+</p>
+
+<div class="line"></div>
+
+<p class="small">
+тёмно-синий • тёмно-зелёный • графитовый • шоколадный • бежевый • светлые натуральные оттенки
+<br><br>
+Просим избегать ярких и неоновых цветов, а также полностью белых образов 🤍
+</p>
+
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+
+<div class="content">
+
+<div class="label">
+Wedding Day
+</div>
+
+<h2 style="font-size:74px;color:#b33c4c;font-weight:400;">
+Свадебное расписание ✨
+</h2>
+
+<div class="timeline">
+
+<div class="event">
+<div class="time">14:20</div>
+<div class="event-title">
+Торжественная регистрация брака
+</div>
+
+<div class="event-text">
+Усадьба Н. С. Третьякова <br>
+(Библиотека Боголюбова) <br>
+ул. Сущёвская, 14
+<br><br>
+Будем счастливы разделить с вами этот важный момент 🤍
+</div>
+</div>
+
+<div class="event">
+<div class="time">15:00</div>
+
+<div class="event-title">
+Свадебная прогулка и фотосессия молодожёнов
+</div>
+
+<div class="event-text">
+После церемонии у гостей будет немного времени для отдыха и подготовки к праздничному вечеру ✨
+</div>
+</div>
+
+<div class="event">
+<div class="time">16:00</div>
+
+<div class="event-title">
+Welcome & фуршет
+</div>
+
+<div class="event-text">
+Особняк В. А. Лемана, банкетный зал «Муза»
+<br>
+Гороховский переулок, 19с4
+</div>
+</div>
+
+<div class="event">
+<div class="time">17:00</div>
+
+<div class="event-title">
+Праздничный вечер
+</div>
+
+<div class="event-text">
+Банкетный зал «Муза»
+<br><br>
+Здесь пройдёт наш свадебный вечер ✨
+</div>
+</div>
+
+<div class="event">
+<div class="time">23:00</div>
+
+<div class="event-title">
+Окончание свадебного дня
+</div>
+
+<div class="event-text">
+Даже самый прекрасный вечер когда-нибудь подходит к концу… 🤍
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FORM -->
+<section class="section footer">
+
+<div class="content">
+
+<div class="label">
+Guest Form
+</div>
+
+<h2 style="font-size:72px;color:#b33c4c;font-weight:400;">
+Анкета гостя ✨
+</h2>
+
+<p class="small">
+Пожалуйста, ответьте на несколько вопросов, которые мы для вас подготовили 🤍
+</p>
+
+<div class="form">
+
+<div class="question">
+<div class="question-title">
+Ваше имя и фамилия
+</div>
+</div>
+
+<div class="question">
+<div class="question-title">
+🚕 Потребуется ли вам трансфер от ЗАГСа до банкетного зала?
+</div>
+
+<div class="option">• Да</div>
+<div class="option">• Нет, буду на личном транспорте</div>
+</div>
+
+<div class="question">
+<div class="question-title">
+🥂 Какой алкоголь вы предпочитаете?
+</div>
+
+<div class="option">• Красное вино</div>
+<div class="option">• Белое вино</div>
+<div class="option">• Шампанское</div>
+<div class="option">• Виски / коньяк</div>
+<div class="option">• Водка</div>
+<div class="option">• Не буду пить алкоголь</div>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<p class="text">
+С любовью <br>
+Игорь и Виктория 🤍
+</p>
+
+</div>
+</section>
+
+</body>
+</html>
